@@ -91,6 +91,10 @@ header .header-up-part .morefeature div .modalPart button:nth-child(1) {
   color: white;
   cursor: pointer;
 }
+header .header-up-part .morefeature div .modalPart button:nth-child(1):hover {
+  background-color: #fe8d30;
+  transition: all 0.15s;
+}
 header .header-up-part .morefeature div .modalPart button:nth-child(2) {
   width: 100px;
   border: 1px solid grey;
@@ -98,6 +102,9 @@ header .header-up-part .morefeature div .modalPart button:nth-child(2) {
   height: 30px;
   color: black;
   cursor: pointer;
+}
+header .header-up-part .morefeature div .modalPart button:nth-child(2):hover {
+  background-color: rgb(231, 228, 228);
 }
 header .header-up-part .morefeature .menu {
   display: none;
@@ -477,8 +484,14 @@ footer .footer-part div .download img {
   .header-up-part .search #searchSystem {
     width: 50% !important;
   }
+  .header-up-part .search i {
+    right: 10% !important;
+  }
   .box {
     gap: 1px !important;
+    justify-content: center !important;
+  }
+  .popularProducts {
     justify-content: center !important;
   }
   .theBest {
@@ -492,5 +505,8 @@ footer .footer-part div .download img {
   }
   .footer-part {
     flex-wrap: wrap;
+  }
+  .footer-part .download img {
+    width: 100px !important;
   }
 }

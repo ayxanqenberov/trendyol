@@ -107,6 +107,10 @@ header {
                         height: 30px;
                         color: white;
                         cursor: pointer;
+                        &:hover{
+                            background-color: #fe8d30;
+                            transition: all .15s;
+                        }
                     }
 
                     button:nth-child(2) {
@@ -116,6 +120,9 @@ header {
                         height: 30px;
                         color: black;
                         cursor: pointer;
+                        &:hover{
+                            background-color: rgb(231, 228, 228);
+                        }
                     }
                 }
             }
@@ -563,10 +570,16 @@ footer {
             #searchSystem{
                 width: 50% !important;
             }
+            i{
+                right: 10% !important;
+            }
         }
     }
     .box{
         gap: 1px !important;
+        justify-content: center !important;
+    }
+    .popularProducts{
         justify-content: center !important;
     }
     .theBest{
@@ -580,5 +593,10 @@ footer {
     }
     .footer-part{
         flex-wrap: wrap;
+        .download{
+            img{
+                width: 100px !important;
+            }
+        }
     }
 }
