@@ -1,7 +1,11 @@
-// const carouselBox = document.querySelector('.box');
-// const leftArrow = document.querySelector('.leftArrow');
-// const rightArrow = document.querySelector('.rightArrow');
-
+window.addEventListener("scroll", () =>{
+    let header = document.querySelector("header")
+    if(window.scrollY > 270){
+        header.classList.add("headerAfter")
+    }else{
+        header.classList.remove("headerAfter")
+    }
+})
 const products = document.querySelector(".popularProducts");
 
 function getData() {
@@ -69,10 +73,41 @@ function getSearch() {
     axios.get("https://fakestoreapi.com/products")
         .then((res) => {
             let data = res.data;
-            let filteredData = data.filter(item => item.title.toLowerCase().includes(value)); // Filter products that match the search value
-            visiblity(filteredData);
+            let filteredData = data.filter(item => item.title.toLowerCase().includes(value));
+            if (filteredData.length > 0) {
+                visiblity(filteredData);
+            } else {
+                products.innerHTML = ""
+                products.innerHTML += `
+                <div class="searchError ">
+            <p>Melumat tapilmadi</p>
+            <i class="alertIcon fa-solid fa-triangle-exclamation"></i>
+        </div>
+                `
+            }
             search.value += ""
         });
-
-    
 }
+
+const carouselContainer = document.querySelector('.carousel-sponsor');
+const slides = carouselContainer.querySelectorAll('.childDivs-sponsor');
+const slideCount = slides.length;
+let currentSlideIndex = 0;
+const nextButton = document.querySelector('.rightArrow');
+const prevButton = document.querySelector('.leftArrow');
+
+nextButton.addEventListener('click', () => {
+  currentSlideIndex = (currentSlideIndex + 1) % slideCount;
+  updateSlides();
+});
+
+prevButton.addEventListener('click', () => {
+  currentSlideIndex = (currentSlideIndex - 1 + slideCount) % slideCount;
+  updateSlides();
+});
+function updateSlides() {
+  slides.forEach((slide, index) => {
+    slide.style.transform = `translateX(${(index - currentSlideIndex) * 100}%)`;
+  });
+}
+updateSlides();

@@ -38,7 +38,7 @@ header {
                 width: 598px;
                 border-radius: 3px;
                 border: none;
-                background-color: #F3F3F3;
+                background-color: #f7f4f4;
             }
 
             i {
@@ -155,6 +155,20 @@ header {
             }
         }
     }
+
+    
+}
+.headerAfter{
+    position: fixed;
+    width: 100%;
+    height: 5rem;
+    background-color: white;
+    top: 0px;
+    z-index: 999;
+    animation: headerFixed 1s forwards;
+    .header-down-part{
+        display: none;
+    }
 }
 
 #sponsors {
@@ -170,30 +184,32 @@ header {
             overflow: hidden;
             width: 80%;
             display: flex;
-            gap: 30px;
+            gap: 20px;
             justify-content: space-evenly;
-
+            scroll-behavior: smooth;
             .childDivs-sponsor {
-                display: flex;
-                flex-direction: column;
+            display: flex;
+            flex-direction: column;
+            width: 68px;
+            height: 68px;
+
+            img {
                 width: 68px;
                 height: 68px;
+                border-radius: 35px;
 
-                img {
-                    width: 68px;
-                    height: 68px;
-                    border-radius: 35px;
-
-                    &:hover {
-                        border: 1px solid #F27A1A;
-                    }
-                }
-
-                a {
-                    text-align: center;
+                &:hover {
+                    border: 1px solid #F27A1A;
                 }
             }
+
+            a {
+                text-align: center;
+            }
+        } 
         }
+
+        
 
         .buttons {
             button {
@@ -285,6 +301,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20px;
 
     .popularProducts {
         width: 80%;
@@ -405,6 +422,28 @@ header {
                 }
             }
         }
+        .searchError{
+            display: flex;
+            width: 80%;
+            height: 25px;
+            border-radius: 2px;
+            border: 1px solid grey;
+            margin: 0 auto;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+            p{
+                color: red;
+                text-transform: capitalize;
+                font-size: 18px;
+                font-weight: 900;
+            }
+            i{
+                color: red;
+                font-size: 18px;
+                font-weight: 900;
+            }
+        }
     }
 }
 
@@ -467,6 +506,17 @@ footer {
     }
 }
 
+@keyframes headerFixed{
+    from {
+        transform: translateY(-100px);
+    }
+
+    to {
+        transition: all .1s;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 992px) {
     .morefeature {
         display: none !important;
@@ -479,12 +529,56 @@ footer {
     .box {
         width: 100%;
     }
-
-    .search {
-        width: 200px;
-
-        input {
-            width: 200px;
+    
+    .header-up-part{
+        display: flex;
+        justify-content: space-between;
+        #searchSystem{
+            width: 400px;
         }
+    }
+    .popularProducts{
+        width: 100% !important;
+    }
+    .header-down-part{
+        display: none;
+    }
+    .carousel-sponsor{
+        .box{
+            width: 90% !important;
+        }
+        .leftArrow{
+            left: 2% !important;
+        }
+        .rightArrow{
+            right: 2% !important;
+        }
+    }
+}
+@media (max-width: 600px){
+    .header-up-part{
+        width: 100% !important;
+        .search{
+            width: 300px ;
+            #searchSystem{
+                width: 50% !important;
+            }
+        }
+    }
+    .box{
+        gap: 1px !important;
+        justify-content: center !important;
+    }
+    .theBest{
+        width: 100% !important;
+        li{
+            width: 100px !important;
+            a{
+                font-size: 13px;
+            }
+        }
+    }
+    .footer-part{
+        flex-wrap: wrap;
     }
 }

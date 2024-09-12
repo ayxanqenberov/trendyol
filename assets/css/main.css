@@ -35,7 +35,7 @@ header .header-up-part .search input {
   width: 598px;
   border-radius: 3px;
   border: none;
-  background-color: #F3F3F3;
+  background-color: #f7f4f4;
 }
 header .header-up-part .search i {
   position: absolute;
@@ -125,6 +125,19 @@ header .header-down-part ul li span {
   font-size: 12px;
 }
 
+.headerAfter {
+  position: fixed;
+  width: 100%;
+  height: 5rem;
+  background-color: white;
+  top: 0px;
+  z-index: 999;
+  animation: headerFixed 1s forwards;
+}
+.headerAfter .header-down-part {
+  display: none;
+}
+
 #sponsors {
   padding-top: 30px;
 }
@@ -138,8 +151,9 @@ header .header-down-part ul li span {
   overflow: hidden;
   width: 80%;
   display: flex;
-  gap: 30px;
+  gap: 20px;
   justify-content: space-evenly;
+  scroll-behavior: smooth;
 }
 #sponsors .carousel-sponsor .box .childDivs-sponsor {
   display: flex;
@@ -232,6 +246,7 @@ header .header-down-part ul li span {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 20px;
 }
 #populars .popularProducts {
   width: 80%;
@@ -341,6 +356,28 @@ header .header-down-part ul li span {
   color: black;
   font-size: 14px;
 }
+#populars .popularProducts .searchError {
+  display: flex;
+  width: 80%;
+  height: 25px;
+  border-radius: 2px;
+  border: 1px solid grey;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+}
+#populars .popularProducts .searchError p {
+  color: red;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 900;
+}
+#populars .popularProducts .searchError i {
+  color: red;
+  font-size: 18px;
+  font-weight: 900;
+}
 
 footer {
   background-color: black;
@@ -388,6 +425,15 @@ footer .footer-part div .download img {
   width: 150px;
 }
 
+@keyframes headerFixed {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transition: all 0.1s;
+    transform: translateY(0);
+  }
+}
 @media (max-width: 992px) {
   .morefeature {
     display: none !important;
@@ -398,10 +444,53 @@ footer .footer-part div .download img {
   .box {
     width: 100%;
   }
-  .search {
-    width: 200px;
+  .header-up-part {
+    display: flex;
+    justify-content: space-between;
   }
-  .search input {
-    width: 200px;
+  .header-up-part #searchSystem {
+    width: 400px;
+  }
+  .popularProducts {
+    width: 100% !important;
+  }
+  .header-down-part {
+    display: none;
+  }
+  .carousel-sponsor .box {
+    width: 90% !important;
+  }
+  .carousel-sponsor .leftArrow {
+    left: 2% !important;
+  }
+  .carousel-sponsor .rightArrow {
+    right: 2% !important;
+  }
+}
+@media (max-width: 600px) {
+  .header-up-part {
+    width: 100% !important;
+  }
+  .header-up-part .search {
+    width: 300px;
+  }
+  .header-up-part .search #searchSystem {
+    width: 50% !important;
+  }
+  .box {
+    gap: 1px !important;
+    justify-content: center !important;
+  }
+  .theBest {
+    width: 100% !important;
+  }
+  .theBest li {
+    width: 100px !important;
+  }
+  .theBest li a {
+    font-size: 13px;
+  }
+  .footer-part {
+    flex-wrap: wrap;
   }
 }
